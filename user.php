@@ -31,6 +31,11 @@
         $query = "INSERT INTO `user`(`name`,`email`,`password`) VALUES('$name','$email','$password')";
         $fire = mysqli_query($this->con , $query );
 
+        if($fire){
+
+          header("Location: index.php"); //redirect
+        }
+
         if(!$fire){
           echo "data not inserted";
         }
@@ -55,6 +60,33 @@
           }
         }
 
+        //edit user
+
+        public function edit_user($sl){
+          //echo $usl;
+          $query = "SELECT * FROM `user` WHERE `sl`= '$sl'";
+
+           return mysqli_query( $this->con , $query );
+        }
+
+        //update user
+
+        public function update_user($data){
+          //print_r($data);
+
+          $sl = $data['sl'];
+          $name = $data['name'];
+          $email = $data['email'];
+          $password = $data['password'];
+
+          $sql = "UPDATE `user` SET `name`='$name',`email`='$email',`password`='$password' WHERE `sl`= ' $sl' ";
+          $result = mysqli_query( $this->con, $sql);
+
+         if($result){
+          //echo "data update successful";
+           header("Location: index.php");
+         }
+        }
 
  }
 

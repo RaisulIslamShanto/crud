@@ -47,6 +47,7 @@ if(isset($_POST['add_user'])){
                 name="name"
                 placeholder="Enter your name "
                 class="form-control"
+                required
               />
             </div>
             <div class="form-group mb-3">
@@ -55,6 +56,7 @@ if(isset($_POST['add_user'])){
                 name="email"
                 placeholder="Enter your email"
                 class="form-control"
+                required
               />
             </div>
             <div class="form-group mb-3">
@@ -63,6 +65,7 @@ if(isset($_POST['add_user'])){
                 name="password"
                 placeholder="Enter your password"
                 class="form-control"
+                required
               />
             </div>
             <div class="form-group mb-3">
@@ -91,6 +94,7 @@ if(isset($_POST['add_user'])){
                 <td><?php echo ucwords($row['name']);?></td>
                 <td><?php echo ($row['email']);?></td>
                 <td> 
+                  <a href="edit.php?sl=<?php echo $row['sl'];?>" class="btn btn-info btn-sm">Edit</a>
                   <a href="delete.php?sl=<?php echo $row['sl'];?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
               </tr>
